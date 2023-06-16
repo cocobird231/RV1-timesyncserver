@@ -1,0 +1,9 @@
+#config/common.yaml
+
+---
+generic_prop:
+    nodeName : "timesyncserver_0_node" #primary
+    namespace : "V0"
+    qosService : "qos_0"
+    safetyService : "safety_0"
+    timesyncService : "timesync_0"
