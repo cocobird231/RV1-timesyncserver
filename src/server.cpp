@@ -1,5 +1,4 @@
 #include "vehicle_interfaces/timesync.h"
-#define TIME_SERVICE_NAME "timeService"
 
 class Params : public rclcpp::Node
 {
