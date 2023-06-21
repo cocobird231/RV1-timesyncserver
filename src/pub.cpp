@@ -1,8 +1,9 @@
+#include "vehicle_interfaces/params.h"
 #include "vehicle_interfaces/timesync.h"
 #include "vehicle_interfaces/msg/wheel_state.hpp"
 
+#define NODE_NAME "timesyncsubtest_0_node"
 #define TOPIC_NAME "topic"
-#define TIME_SERVICE_NAME "timesync_0"
 
 using namespace std::chrono_literals;
 
@@ -55,7 +56,8 @@ public:
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
-    auto timeSyncPub = std::make_shared<SampleTimeSyncPublisher>("timesync_publisher", TOPIC_NAME, TIME_SERVICE_NAME, 10000.0, 0.3);
+    auto params = std::make_shared<vehicle_interfaces::GenericParams>("timesyncpubtest_params_node");
+    auto timeSyncPub = std::make_shared<SampleTimeSyncPublisher>(NODE_NAME, TOPIC_NAME, params->timesyncService);
     rclcpp::spin(timeSyncPub);
     std::cerr << "Spin Exit" << std::endl;
     rclcpp::shutdown();

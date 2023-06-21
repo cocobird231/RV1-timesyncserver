@@ -14,12 +14,15 @@ def generate_launch_description():
         Node(
             package="cpp_timesyncserver",
             namespace=data['generic_prop']['namespace'],
-            executable="server",
+            executable=data['launch_node'],
             output="screen",
             emulate_tty=True,
             parameters=[
                 {
+                    # Settings for Params class under vehicle_interfaces/params.h
+                    # Do not change the settings rashly
                     "nodeName" : data['generic_prop']['nodeName'], 
+                    "id" : data['generic_prop']['id'], 
                     "qosService" : data['generic_prop']['qosService'], 
                     "safetyService" : data['generic_prop']['safetyService'], 
                     "timesyncService" : data['generic_prop']['timesyncService'], 

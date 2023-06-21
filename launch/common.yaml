@@ -1,9 +1,14 @@
 #config/common.yaml
 
 ---
+launch_node : "server" # Server: server; publish test: pub; subscription test: sub
+
+# Settings for Params class under vehicle_interfaces/params.h
+# The nodeName describes the name of node, the name will be automatically formed as "<nodeName>_<id>_node"
 generic_prop:
-    nodeName : "timesyncserver_0_node" #primary
     namespace : "V0"
+    nodeName : "timesyncserver"
+    id : 0 # Frequently changed parameter
     qosService : "qos_0"
     safetyService : "safety_0"
     timesyncService : "timesync_0"

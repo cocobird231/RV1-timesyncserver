@@ -1,8 +1,9 @@
+#include "vehicle_interfaces/params.h"
 #include "vehicle_interfaces/timesync.h"
 #include "vehicle_interfaces/msg/wheel_state.hpp"
 
+#define NODE_NAME "timesyncsubtest_0_node"
 #define TOPIC_NAME "topic"
-#define TIME_SERVICE_NAME "timesync_0"
 
 class SampleTimeSyncSubscriber : public TimeSyncNode
 {
@@ -23,7 +24,7 @@ private:
     }
 
 public:
-    SampleTimeSyncSubscriber(std::string nodeName, std::string topicName, std::string timeServiceName) : TimeSyncNode(nodeName, timeServiceName, 10000, 0.3), Node(nodeName)
+    SampleTimeSyncSubscriber(std::string nodeName, std::string topicName, std::string timeServiceName) : TimeSyncNode(nodeName, timeServiceName, 10000, 2), Node(nodeName)
     {
         this->subscription_ = this->create_subscription<vehicle_interfaces::msg::WheelState>(topicName, 
             10, std::bind(&SampleTimeSyncSubscriber::topic_callback, this, std::placeholders::_1));
@@ -33,7 +34,8 @@ public:
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
-    auto timeSyncSub = std::make_shared<SampleTimeSyncSubscriber>("timesync_subscriber", TOPIC_NAME, TIME_SERVICE_NAME);
+    auto params = std::make_shared<vehicle_interfaces::GenericParams>("timesyncsubtest_params_node");
+    auto timeSyncSub = std::make_shared<SampleTimeSyncSubscriber>(NODE_NAME, TOPIC_NAME, params->timesyncService);
     rclcpp::spin(timeSyncSub);
     std::cerr << "Spin Exit" << std::endl;
     rclcpp::shutdown();
