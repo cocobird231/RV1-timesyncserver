@@ -12,3 +12,5 @@ generic_prop:
     qosService : "qos_0"
     safetyService : "safety_0"
     timesyncService : "timesync_0"
+    timesyncInterval_ms : 1000.0
+    timesyncAccuracy_ms : 2.0
