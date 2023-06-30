@@ -5,7 +5,7 @@
 #define NODE_NAME "timesyncsubtest_0_node"
 #define TOPIC_NAME "topic"
 
-class SampleTimeSyncSubscriber : public TimeSyncNode
+class SampleTimeSyncSubscriber : public vehicle_interfaces::TimeSyncNode
 {
 private:
     rclcpp::Subscription<vehicle_interfaces::msg::WheelState>::SharedPtr subscription_;
@@ -25,8 +25,8 @@ private:
 
 public:
     SampleTimeSyncSubscriber(const std::shared_ptr<vehicle_interfaces::GenericParams>& gParams) : 
-        TimeSyncNode(NODE_NAME, gParams->timesyncService, gParams->timesyncInterval_ms, gParams->timesyncAccuracy_ms), 
-        Node(NODE_NAME)
+        vehicle_interfaces::TimeSyncNode(NODE_NAME, gParams->timesyncService, gParams->timesyncInterval_ms, gParams->timesyncAccuracy_ms), 
+        rclcpp::Node(NODE_NAME)
     {
         this->subscription_ = this->create_subscription<vehicle_interfaces::msg::WheelState>(TOPIC_NAME, 
             10, std::bind(&SampleTimeSyncSubscriber::topic_callback, this, std::placeholders::_1));

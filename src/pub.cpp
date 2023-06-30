@@ -7,7 +7,7 @@
 
 using namespace std::chrono_literals;
 
-class SampleTimeSyncPublisher : public TimeSyncNode
+class SampleTimeSyncPublisher : public vehicle_interfaces::TimeSyncNode
 {
 private:
     rclcpp::Publisher<vehicle_interfaces::msg::WheelState>::SharedPtr publisher_;
@@ -38,8 +38,8 @@ private:
 
 public:
     SampleTimeSyncPublisher(const std::shared_ptr<vehicle_interfaces::GenericParams>& gParams) : 
-        TimeSyncNode(NODE_NAME, gParams->timesyncService, gParams->timesyncInterval_ms, gParams->timesyncAccuracy_ms), 
-        Node(NODE_NAME)
+        vehicle_interfaces::TimeSyncNode(NODE_NAME, gParams->timesyncService, gParams->timesyncInterval_ms, gParams->timesyncAccuracy_ms), 
+        rclcpp::Node(NODE_NAME)
     {
         this->nodeName_ = NODE_NAME;
         this->publisher_ = this->create_publisher<vehicle_interfaces::msg::WheelState>(TOPIC_NAME, 10);
