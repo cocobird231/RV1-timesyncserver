@@ -1,5 +1,4 @@
-#include "vehicle_interfaces/params.h"
-#include "vehicle_interfaces/timesync.h"
+#include "vehicle_interfaces/vehicle_interfaces.h"
 #include "vehicle_interfaces/msg/wheel_state.hpp"
 
 #define NODE_NAME "timesyncsubtest_0_node"
