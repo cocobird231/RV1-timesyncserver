@@ -14,14 +14,9 @@ else()# eloquent
 endif()
 
 # find dependencies
-SET(ENABLE_TS_NODE False CACHE BOOL "Some user-specified option")
-if( ENABLE_TS_NODE ) 
-  add_compile_options(-DTS_NODE)
-endif()
-
-SET(ENABLE_QOS_NODE False CACHE BOOL "Some user-specified option")
-if( ENABLE_QOS_NODE ) 
-  add_compile_options(-DQOS_NODE)
+SET(ENABLE_VS_NODE False CACHE BOOL "Some user-specified option")
+if( ENABLE_VS_NODE ) 
+  add_compile_options(-DVS_NODE)
 endif()
 
 find_package(ament_cmake REQUIRED)
