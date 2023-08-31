@@ -24,9 +24,10 @@ def generate_launch_description():
                     "nodeName" : data['generic_prop']['nodeName'] + '_' + str(data['generic_prop']['id']) + '_node', 
                     "id" : data['generic_prop']['id'], 
                     "qosService" : data['generic_prop']['qosService'], 
+                    "qosDirPath" : data['generic_prop']['qosDirPath'], 
                     "safetyService" : data['generic_prop']['safetyService'], 
                     "timesyncService" : data['generic_prop']['timesyncService'], 
-                    "timesyncInterval_ms" : data['generic_prop']['timesyncInterval_ms'], 
+                    "timesyncPeriod_ms" : data['generic_prop']['timesyncPeriod_ms'], 
                     "timesyncAccuracy_ms" : data['generic_prop']['timesyncAccuracy_ms'], 
                 }
             ]

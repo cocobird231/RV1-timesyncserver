@@ -24,7 +24,7 @@ private:
 
 public:
     SampleTimeSyncSubscriber(const std::shared_ptr<vehicle_interfaces::GenericParams>& gParams) : 
-        vehicle_interfaces::TimeSyncNode(NODE_NAME, gParams->timesyncService, gParams->timesyncInterval_ms, gParams->timesyncAccuracy_ms), 
+        vehicle_interfaces::TimeSyncNode(NODE_NAME, gParams->timesyncService, gParams->timesyncPeriod_ms, gParams->timesyncAccuracy_ms), 
         rclcpp::Node(NODE_NAME)
     {
         this->subscription_ = this->create_subscription<vehicle_interfaces::msg::WheelState>(TOPIC_NAME, 

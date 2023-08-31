@@ -4,13 +4,24 @@
 launch_node : "server" # Server: server; publish test: pub; subscription test: sub
 
 # Settings for Params class under vehicle_interfaces/params.h
-# The nodeName describes the name of node, the name will be automatically formed as "<nodeName>_<id>_node"
 generic_prop:
+    # Node name and namespace. The namespace will automatically adding prefix at node name, topic name, service name, etc..
     namespace : "V0"
     nodeName : "timesyncserver"
-    id : 0 # Frequently changed parameter
-    qosService : "qos_0"
-    safetyService : "safety_0"
-    timesyncService : "timesync_0"
-    timesyncInterval_ms : 10000.0
-    timesyncAccuracy_ms : 2.0
+
+    # Device ID, the ID will automatically formed the name of nodes and publisher topics. For instance, 
+    # the node name will be formed as "<nodeName>_<id>_node", and the publisher topic name will be formed as "<topic_name>_<id>". 
+    # Note: If the topic use to be subscriptions, then the topic name will not be formed.
+    id : 0
+
+    # QoS service configuration
+    qosService : "qos_0" # Service name
+    qosDirPath : "launch/qos"
+
+    # Safety service configuration
+    safetyService : "" # Service name safety_0
+
+    # Time sync service configuration
+    timesyncService : "timesync_0" # Service name
+    timesyncPeriod_ms : 3000000.0
+    timesyncAccuracy_ms : 2.0 # Restrict the duration of sync process time
