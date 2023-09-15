@@ -1,3 +1,4 @@
+#ver=1.2
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
@@ -23,6 +24,8 @@ def generate_launch_description():
                     # Do not change the settings rashly
                     "nodeName" : data['generic_prop']['nodeName'] + '_' + str(data['generic_prop']['id']) + '_node', 
                     "id" : data['generic_prop']['id'], 
+                    "devInfoService" : data['generic_prop']['devInfoService'], 
+                    "devInterface" : data['generic_prop']['devInterface'], 
                     "qosService" : data['generic_prop']['qosService'], 
                     "qosDirPath" : data['generic_prop']['qosDirPath'], 
                     "safetyService" : data['generic_prop']['safetyService'], 

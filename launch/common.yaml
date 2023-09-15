@@ -1,5 +1,4 @@
-#config/common.yaml
-
+#ver=1.2
 ---
 launch_node : "server" # Server: server; publish test: pub; subscription test: sub
 
@@ -14,14 +13,18 @@ generic_prop:
     # Note: If the topic use to be subscriptions, then the topic name will not be formed.
     id : 0
 
+    # Device information service configuration
+    devInfoService : "" # Service name devinfo_0
+    devInterface : "eth0" # eth0
+
     # QoS service configuration
-    qosService : "qos_0" # Service name
+    qosService : "qos_0" # Service name qos_0
     qosDirPath : "launch/qos"
 
     # Safety service configuration
     safetyService : "" # Service name safety_0
 
     # Time sync service configuration
-    timesyncService : "timesync_0" # Service name
+    timesyncService : "timesync_0" # Service name timesync_0
     timesyncPeriod_ms : 3000000.0
     timesyncAccuracy_ms : 2.0 # Restrict the duration of sync process time
