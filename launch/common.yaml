@@ -1,4 +1,4 @@
-#ver=1.2
+#ver=1.3
 ---
 launch_node : "server" # Server: server; publish test: pub; subscription test: sub
 
@@ -16,6 +16,7 @@ generic_prop:
     # Device information service configuration
     devInfoService : "" # Service name devinfo_0
     devInterface : "eth0" # eth0
+    devMultiNode : True # False
 
     # QoS service configuration
     qosService : "qos_0" # Service name qos_0
