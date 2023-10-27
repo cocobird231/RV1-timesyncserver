@@ -1,0 +1,10 @@
+# NTP server connection
+printf "%s" "Restart NTP..."
+sudo timedatectl set-ntp off
+printf "\t%s" "OFF"
+sudo timedatectl set-ntp on
+printf "\t%s\n" "ON"
+sleep 1
+printf "%s" "Restart systemd-timesyncd..."
+sudo systemctl restart systemd-timesyncd
+printf "\t%s\n" "DONE"

@@ -1,4 +1,4 @@
-#ver=1.3
+#ver=1.4
 ---
 launch_node : "server" # Server: server; publish test: pub; subscription test: sub
 
@@ -27,5 +27,6 @@ generic_prop:
 
     # Time sync service configuration
     timesyncService : "timesync_0" # Service name timesync_0
-    timesyncPeriod_ms : 3000000.0
+    timesyncPeriod_ms : 600000.0 # 10 minute a sync for HPC. 2 minute a sync for sensors.
     timesyncAccuracy_ms : 2.0 # Restrict the duration of sync process time
+    timesyncWaitService : True # Wait until time synced at construction.

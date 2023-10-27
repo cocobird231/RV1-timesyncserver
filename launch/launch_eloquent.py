@@ -1,4 +1,4 @@
-#ver=1.3
+#ver=1.4
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
@@ -33,6 +33,7 @@ def generate_launch_description():
                     "timesyncService" : data['generic_prop']['timesyncService'], 
                     "timesyncPeriod_ms" : data['generic_prop']['timesyncPeriod_ms'], 
                     "timesyncAccuracy_ms" : data['generic_prop']['timesyncAccuracy_ms'], 
+                    "timesyncWaitService" : data['generic_prop']['timesyncWaitService'], 
                 }
             ]
         )
