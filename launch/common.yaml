@@ -1,6 +1,6 @@
 #ver=2.0
 ---
-launch_node : "server" # Server: server; publish test: pub; subscription test: sub
+launch_node : "server" # Server: server
 UTCStatus : True # Set to True if Internet checked while start-up.
 
 # Settings for Params class under vehicle_interfaces/params.h
